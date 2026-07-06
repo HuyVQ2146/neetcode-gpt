@@ -37,11 +37,10 @@ class Solution:
         # Return np.round(final_weights, 5)
     
         n = X.shape[0]
-        len_weights = initial_weights.shape[0]
         for i in range(num_iterations):
             model_prediction = self.get_model_prediction(X, initial_weights)
 
-            for j in range(len_weights):
+            for j in range(initial_weights.shape[0]):
                 gradient = self.get_derivative(model_prediction, Y, n, X, j)
                 initial_weights[j] -= self.learning_rate * gradient
 
