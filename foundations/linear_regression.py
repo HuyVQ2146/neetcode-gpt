@@ -7,7 +7,6 @@ class Solution:
         # X is (n, m), weights is (m,) -> return (n,) predictions
         # Round to 5 decimal places
         
-        n, m = X.shape
         X = np.dot(X, weights)
         return X.round(5)
 
