@@ -14,7 +14,11 @@ class Solution:
         # note that N is just len(X)
         return -2 * np.dot(ground_truth - model_prediction, X[:, desired_weight]) / N
 
-    def get_model_prediction(self, X: NDArray[np.float64], weights: NDArray[np.float64]) -> NDArray[np.float64]:
+    def get_model_prediction(
+        self, 
+        X: NDArray[np.float64],
+        weights: NDArray[np.float64]
+    ) -> NDArray[np.float64]:
         return np.squeeze(np.matmul(X, weights))
 
     learning_rate = 0.01
@@ -32,7 +36,7 @@ class Solution:
         #   3. Update: weights[j] -= learning_rate * gradient
         # Return np.round(final_weights, 5)
     
-        n, m = X.shape
+        n = X.shape[0]
         for i in range(num_iterations):
             model_prediction = self.get_model_prediction(X, initial_weights)
 
