@@ -40,5 +40,4 @@ class Solution:
                 gradient = self.get_derivative(model_prediction, Y, n, X, j)
                 initial_weights[j] -= self.learning_rate * gradient
 
-
         return initial_weights.round(5)
