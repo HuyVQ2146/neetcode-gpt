@@ -11,7 +11,7 @@ class Solution:
         # return round(your_answer, 4)
 
         epsilon = 10**-7
-        y_pred += epsilon
+        y_pred = np.clip(y_pred, epsilon, 1 - epsilon)
         n = y_true.shape[0]
         loss = -(1 / n) * (np.sum(y_true * np.log(y_pred) + 
                             (1 - y_true) * np.log(1 - y_pred)))
@@ -25,7 +25,7 @@ class Solution:
         # return round(your_answer, 4)
 
         epsilon = 10**-7
-        y_pred += epsilon
+        y_pred = np.clip(y_pred, epsilon, 1 - epsilon)
         n = y_true.shape[0]
         loss = -(1 / n) * np.sum(y_true * np.log(y_pred))
         return round(loss, 4)
