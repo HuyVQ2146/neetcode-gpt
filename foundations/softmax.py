@@ -10,7 +10,9 @@ class Solution:
         # return np.round(your_answer, 4)
         
         z = z - np.max(z)
-        softmax = np.exp(z) / np.sum(np.exp(z))
+        exp_z = np.exp(z)
+
+        softmax = exp_z / np.sum(exp_z)
         return np.round(softmax, 4)
 
 
