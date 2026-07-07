@@ -15,4 +15,4 @@ class Solution:
         for i in range(len(weights)):
             z = z @ weights[i] + biases[i]
             z = np.maximum(z, 0)
-        return z
+        return np.round(z, 5)
