@@ -50,6 +50,3 @@ class Solution:
             'dW2': np.round(dW2, 4).tolist(),
             'db2': np.round(db2, 4).tolist(),
         }
-        
-
-        # {loss:0.25,dW1:[[0.5,1.0],[0.5,1.0]],db1:[0.5,0.5],dW2:[[1.0,2.0]],db2:[1.0]}
