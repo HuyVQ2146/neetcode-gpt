@@ -20,6 +20,8 @@ class Solution:
             ans = 1 / (1 + np.exp(-z))
         elif activation == "relu":
             ans = np.maximum(0, z)
-            
+        else:
+            raise ValueError("Activation must be 'sigmoid' or 'relu'")
+
         return round(float(ans), 5) 
         
