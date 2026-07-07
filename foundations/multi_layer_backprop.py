@@ -32,16 +32,16 @@ class Solution:
         loss = np.mean((z2 - y_true)**2)
 
         # Backward pass
-        n = len(y_true) if y_true.ndim > 0 else 1        
-        dz2 = 2 * (z2 - y_true) / n
-        dW2 = dz2.reshape(-1, 1) @ a1.reshape(1, -1)
-        db2 = dz2
+        n = len(y_true) if y_true.ndim > 0 else 1
+        dz2 = 2 * (z2 - y_true) / n  # dL/dz2
+        dW2 = dz2.reshape(-1, 1) @ a1.reshape(1, -1)  # dL/dW2
+        db2 = dz2                      # dL/db2
 
-        da1 = dz2.reshape(1, -1) @ W2
+        da1 = dz2.reshape(1, -1) @ W2  # dL/da1
         da1 = da1.flatten()
-        dz1 = da1 = da1 * (z1 > 0).astype(float)
-        dW1 = dz1.reshape(-1, 1) @ x.reshape(1, -1)
-        db1 = dz1
+        dz1 = da1 * (z1 > 0).astype(float)  # ReLU derivative
+        dW1 = dz1.reshape(-1, 1) @ x.reshape(1, -1)  # dL/dW1
+        db1 = dz1                      # dL/db1
 
         return {
             'loss': round(float(loss), 4),
