@@ -13,6 +13,6 @@ class Solution:
         
         rms = np.sqrt(np.mean(x**2 + eps))
         x_hat = x/rms
-        output = np.round(gamma * x_hat, 4)
+        output = gamma * x_hat
 
-        return output.tolist()
+        return np.round(output.tolist(), 4)
