@@ -23,7 +23,7 @@ class Solution:
 
         for i in range(epochs):
             y_hat = X @ w + b
-            dL_dw = (2/n_samples) * X.T @ (y_hat - y) 
+            dL_dw = (2/n_samples) * (X.T @ (y_hat - y)) 
             dL_db = (2/n_samples) * np.sum(y_hat - y) 
 
             w = w - lr * dL_dw
