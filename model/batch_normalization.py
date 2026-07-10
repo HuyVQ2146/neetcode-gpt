@@ -19,7 +19,7 @@ class Solution:
         
         if training:
             mu_B = np.mean(x, axis=0)
-            var_B = np.mean((x-mu_B)**2)
+            var_B = np.mean((x-mu_B)**2, axis=0)
             x_hat = (x - mu_B) / np.sqrt(var_B + eps)
 
             running_mean = (1 - momentum) * running_mean + momentum * mu_B
