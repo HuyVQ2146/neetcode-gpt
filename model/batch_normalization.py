@@ -1,6 +1,5 @@
 import numpy as np
 from typing import Tuple, List
-from math import sqrt
 
 
 class Solution:
@@ -21,7 +20,7 @@ class Solution:
         if training:
             mu_B = np.mean(x, axis=0)
             var_B = np.mean((x-mu_B)**2)
-            x_hat = (x - mu_B) / sqrt(var_B + eps)
+            x_hat = (x - mu_B) / np.sqrt(var_B + eps)
 
             running_mean = (1 - momentum) * running_mean + momentum * mu_B
             running_var = (1 - momentum) * running_var + momentum * var_B
@@ -31,8 +30,8 @@ class Solution:
         
         y = gamma * x_hat + beta
 
-        y = y.round(4)
-        running_mean = running_mean.round(4)
-        running_var = running_var.round(4)
+        y = y.round(4).tolist()
+        running_mean = running_mean.round(4).tolist()
+        running_var = running_var.round(4).tolist()
 
         return (y, running_mean, running_var)
