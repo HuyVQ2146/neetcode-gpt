@@ -1,6 +1,5 @@
 import numpy as np
 from numpy.typing import NDArray
-from math import sqrt
 
 
 class Solution:
@@ -16,6 +15,6 @@ class Solution:
         eps = 1e-5
         mean = np.mean(x)
         var = np.mean((x - mean)**2)
-        x_hat = (x - mean) / sqrt(var + eps)
+        x_hat = (x - mean) / np.sqrt(var + eps)
         out = gamma * x_hat + beta
         return np.round(out, 5)
