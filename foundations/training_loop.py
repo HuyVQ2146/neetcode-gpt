@@ -18,7 +18,7 @@ class Solution:
         n_samples, n_features = X.shape
 
         w = np.zeros(n_features)
-        b = 0
+        b = 0.0
 
 
         for i in range(epochs):
