@@ -15,4 +15,4 @@ class Solution:
         x_hat = x/rms
         output = gamma * x_hat
 
-        return np.round(output.tolist(), 4)
+        return np.round(output, 4).tolist()
